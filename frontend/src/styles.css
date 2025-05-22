@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@theme {
+  /* Primary Colors */
+  --color-green-primary: #47894B;
+  --color-light-primary: #E8EDDF;
+  --color-dark-primary: #242423;
+  /* Secondary Colors */
+  --color-input: #CFDBD5;
+  --color-inputBorder: rgba(0, 0, 0, 0.25);
+  --color-boxHeader: #D4D9CB;
+  --color-box: #D4D9CB;
+  --color-dropdown: #CACFC1;
+
+  /* Gradient Color */
+  --color-gradientDark: #121212;
+  --color-gradientDarkLighter: #232322;
+
+  /* Padding & Margin */
+  --spacing-spacebetween: 10px;
+  /* Border */
+  --radius-border: 5px;
+  /* Font */
+  --font-display: "Cairo", 'Arial';
+}
