@@ -5,6 +5,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './components/dashboard/dash-content/home/home.component';
 import { StatisticsComponent } from './components/dashboard/dash-content/statistics/statistics.component';
 import { SettingsComponent } from './components/dashboard/dash-content/settings/settings.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -19,6 +20,6 @@ export const routes: Routes = [
       {path: "", redirectTo: "home", pathMatch: 'full'}
     ]
   },
-  {path: "", redirectTo: "login", pathMatch: 'full'}
-  // {path: "**", title: "404", component: PageNotFound'}
+  {path: "", redirectTo: "login", pathMatch: 'full'},
+  {path: "**", title: "404", component: PageNotFoundComponent}
 ];
