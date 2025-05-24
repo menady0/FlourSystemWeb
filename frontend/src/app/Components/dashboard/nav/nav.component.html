@@ -1,0 +1,22 @@
+<nav dir="ltr"
+  class="bg-linear-to-br from-gradientDark to-gradientDarkLighter lg:flex lg:items-center lg:h-full lg:px-8 rounded-t-lg">
+  <ul
+    class="flex justify-center items-center gap-20 py-4 text-2xl text-light-primary md:gap-40 lg:flex-col lg:gap-20 md:py-8 md:text-4xl lg:text-2xl">
+    <li>
+      <a routerLink="home" routerLinkActive="active" class="nav-icon" (click)="setActive(0, $event)">
+        <i class="fas fa-home"></i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="statistics" routerLinkActive="active" class="nav-icon" (click)="setActive(1, $event)">
+        <i class="fas fa-chart-bar"></i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="settings" routerLinkActive="active" class="nav-icon" (click)="setActive(2, $event)">
+        <i class="fas fa-cog"></i>
+      </a>
+    </li>
+    <div class="indecator" [style.transform]="'translateX(' + indicatorX + 'px)'"></div>
+  </ul>
+</nav>

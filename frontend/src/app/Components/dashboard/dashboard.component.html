@@ -1,0 +1,20 @@
+<!-- <app-header></app-header>
+<div class="p-spacebetween">
+  <router-outlet></router-outlet>
+</div>
+<app-nav></app-nav> -->
+
+<div dir="rtl"
+  class="w-screen h-screen min-h-0 min-w-0 overflow-hidden lg:bg-gradient-to-bl lg:from-gradientDark lg:to-gradientDarkLighter flex flex-col-reverse lg:flex-row">
+  <aside class="">
+    <app-nav></app-nav>
+  </aside>
+  <div class="flex flex-col flex-1 min-h-0 min-w-0">
+    <header>
+      <app-header></app-header>
+    </header>
+    <div class="flex-1 min-h-0 bg-light-primary lg:m-5 rounded-3xl p-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

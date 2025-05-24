@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service'; // Adjust path
 import { ToastComponent } from '../toast/toast.component';
 
 @Component({
@@ -16,37 +17,26 @@ export class LoginComponent {
     username: '',
     password: ''
   };
-  
-  constructor(private http: HttpClient){}
-  
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
   toastMessage = '';
   toastType: 'error' | 'success' | 'info' | 'warning' = 'error';
 
   onSubmit(){
-    const url = ""; // Endpoint
-    
-    interface LoginResponse {
-      token: string;
-      user: {
-        id: number;
-        name: string;
-      };
-    }
-
-    this.http.post<LoginResponse>(url, this.loginData).subscribe({
-      next: (res) => {
-        // console.log('login successed', res);
-        localStorage.setItem('token', res.token); // res.token is what the backend gave you
-        localStorage.setItem('userID', res.user.id.toString());
-        localStorage.setItem('name', res.user.name);
-        // this.errorMessage = '';
+    this.authService.login(this.loginData.username, this.loginData.password).subscribe({
+      next: () => {
+        this.toastType = 'success';
+        this.toastMessage = 'تم تسجيل الدخول بنجاح!';
+        this.router.navigate(['/dashboard']);
       },
       error: (err) => {
-        // console.log('login failed', err);
+        console.error('login failed', err);
         this.toastType = 'error';
         this.toastMessage = 'اسم المستخدم أو كلمة المرور غير صحيحة';
-
-        // this.errorMessage = "اسم المستخدم أو كلمة المرور غير صحيحة";
       }
     });
   }
