@@ -1,1 +1,57 @@
-<p>home works!</p>
+<!-- Box -->
+<div class="border border-gray-400 rounded-md mb-1 relative">
+  <!-- DropDown -->
+  <div class="absolute top-8 left-5 bg-neutral-400 flex flex-col px-3 rounded-md h-0 overflow-hidden">
+    <button class="my-1">reset</button>
+    <button class="my-1">update</button>
+    <button class="my-1">delete</button>
+  </div>
+  <!-- Box Header -->
+  <div class="bg-[#D4D9CB] flex justify-between items-center p-3 text-sm">
+    <div>
+      <p>حمادة شعبان عاطف بورعي</p>
+    </div>
+    <div>
+      <p>
+        الإجمالي <span
+          class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">50</span>
+      </p>
+    </div>
+    <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+  </div>
+  <!-- Box Body -->
+  <div class="flex justify-between p-2">
+    <!-- Button -->
+    <div class="w-15 h-15">
+      <button
+        class="bg-dark-primary rounded-full w-full h-full text-light-primary text-xs transition hover:bg-green-primary">تسجيل</button>
+    </div>
+    <!-- Label & Input Container -->
+    <div class="flex-1 text-center px-2">
+      <!-- Labels -->
+      <div class="flex justify-center sm:gap-20 md:gap-30">
+        <p>
+          <span class="text-sm">المطلوب</span>
+          <span
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">50</span>
+        </p>
+        <p>
+          <span class="text-sm">استلم</span>
+          <span
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">50</span>
+        </p>
+        <p>
+          <span class="text-sm">السعر</span>
+          <span
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">50</span>
+        </p>
+      </div>
+      <!-- Inputs -->
+      <div class="mt-1 flex justify-center gap-4 sm:gap-20 md:gap-30">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
+      </div>
+    </div>
+  </div>
+</div>
