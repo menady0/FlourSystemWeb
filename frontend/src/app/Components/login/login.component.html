@@ -1,6 +1,6 @@
 <div class="min-h-screen flex flex-col lg:flex-row bg-light-primary relative">
 
-  <!-- Left Side Image (Full width & height on large screens) -->
+  <!-- Left Side Image -->
   <div class="hidden lg:block lg:w-1/2 h-screen">
     <img src="Shapes.png" alt="Login Image" class="w-full h-full">
   </div>
@@ -8,7 +8,7 @@
   <!-- Right Side: Login Form Section -->
   <div class="relative flex-1 flex flex-col items-center justify-center px-4 py-10">
 
-    <!-- Back Icon (Top-left of right side only) -->
+    <!-- Back Icon -->
     <div class="absolute top-4 left-4 lg:left-8">
       <a href="#">
         <i class="fa-solid fa-angle-left text-xl text-dark-primary"></i>
@@ -16,9 +16,9 @@
     </div>
 
     <!-- Form Content -->
-    <div dir="rtl" class="w-full max-w-md sm:max-w-lg md:max-w-xl space-y-6 lg:w-3/4 md:w-4/5">
+    <div dir="rtl" class="w-full px-8 md:px-20 lg:px-15 max-w-md sm:max-w-lg md:max-w-xl space-y-6 lg:w-3/4 md:w-4/5">
 
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center">مرحباً بعودتك!</h1>
+      <h1 class="text-5xl sm:text-4xl md:text-5xl font-bold mb-8 text-center">مرحباً بعودتك!</h1>
 
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="space-y-5">
 

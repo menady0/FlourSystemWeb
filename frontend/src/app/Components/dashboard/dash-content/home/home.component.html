@@ -1,0 +1,61 @@
+<!-- Box -->
+<div *ngFor="let record of records"
+class="border border-gray-400 rounded-md mb-1 relative">
+  <!-- DropDown -->
+  <div class="absolute top-3 left-5 bg-box flex flex-col rounded-md overflow-hidden h-auto transition-all duration-300"  [class.max-h-0]="!record.showDropdown"
+  [class.max-h-[165px]]="record.showDropdown">
+    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="resetRecord(record)">reset</button>
+    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="updateRecord(record)">update</button>
+    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="deleteRecord(record)">delete</button>
+  </div>
+  <!-- Box Header -->
+  <div class="bg-[#D4D9CB] flex justify-between items-center p-3 text-sm">
+    <div>
+      <p>{{ record.name }}</p>
+    </div>
+    <div>
+      <p>
+        الإجمالي 
+        <span
+          class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.total }}</span>
+      </p>
+    </div>
+    <button (click)="toggleDropdown(record)"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+  </div>
+  <!-- Box Body -->
+  <div class="flex justify-between p-2">
+    <!-- Button -->
+    <div class="w-15 h-15">
+      <button
+        class="bg-dark-primary rounded-full w-full h-full text-light-primary text-xs transition hover:bg-green-primary">تسجيل</button>
+    </div>
+    <!-- Label & Input Container -->
+    <div class="flex-1 text-center px-2">
+      <!-- Labels -->
+      <div class="flex justify-center sm:gap-20 md:gap-30">
+        <p>
+          <span class="text-sm">المطلوب</span>
+          <span
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.required }}</span>
+        </p>
+        <p>
+          <span class="text-sm">استلم</span>
+          <span
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.received }}</span>
+        </p>
+        <p>
+          <span class="text-sm">السعر</span>
+          <span
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.price }}</span>
+        </p>
+      </div>
+      <!-- Inputs -->
+      <div class="mt-1 flex justify-center gap-4 sm:gap-20 md:gap-30">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
+      </div>
+    </div>
+  </div>
+</div>
+<app-toast [message]="toastMessage" [type]="toastType"></app-toast>
