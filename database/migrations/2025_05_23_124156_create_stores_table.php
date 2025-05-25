@@ -12,17 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('stores', function (Blueprint $table) {
-            $table->id('StoreID');
+            $table->id(); // StoreID
             $table->dateTime('DateOfOperation');
             $table->integer('MoneyPaid');
             $table->integer('theReceivedQuantity');
             $table->integer('theDeliveredQuantity');
             $table->unsignedBigInteger('CustomerID')->nullable();
-
-            $table->foreign('CustomerID')
-                ->references('CustomerID')->on('customers')
-                ->onDelete('set null')
-                ->onUpdate('cascade');
+            $table->foreign('CustomerID')->references('CustomerID')->on('customers')->onDelete('set null')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 

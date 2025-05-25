@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->unsignedBigInteger('CustomerID')->primary(); // Primary key without auto-increment
+            $table->unsignedBigInteger('CustomerID')->primary();
             $table->string('OwnerName', 25);
             $table->tinyInteger('NumberOfPeople');
             $table->integer('TotalQuantity');
@@ -22,11 +22,8 @@ return new class extends Migration
             $table->date('RenewalDate');
             $table->integer('customerIndex');
             $table->unsignedBigInteger('OwnerID')->nullable();
-
-            $table->foreign('OwnerID')
-                ->references('OwnerID')->on('owners')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+            $table->foreign('OwnerID')->references('id')->on('owners')->onDelete('set null')->onUpdate('set null');
+            $table->timestamps();
         });
     }
 

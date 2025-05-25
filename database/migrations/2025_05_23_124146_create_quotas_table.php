@@ -12,16 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quotas', function (Blueprint $table) {
-            $table->id('QuotaID');
+            $table->id(); // QuotaID
             $table->float('Amount');
             $table->integer('AmountPerKG');
             $table->date('DateReceived');
             $table->unsignedBigInteger('OwnerID')->nullable();
-
-            $table->foreign('OwnerID')
-                ->references('OwnerID')->on('owners')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+            $table->foreign('OwnerID')->references('id')->on('owners')->onDelete('set null')->onUpdate('set null');
+            $table->timestamps();
         });
     }
 
