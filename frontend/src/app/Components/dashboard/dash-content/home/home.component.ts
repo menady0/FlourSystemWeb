@@ -38,6 +38,24 @@ records: RecordItem[] = [
       price: 50,
       showDropdown: false,
     },
+    {
+      id: 3,
+      name: 'حمادة بورعي',
+      total: 50,
+      required: 50,
+      received: 50,
+      price: 50,
+      showDropdown: false,
+    },
+    {
+      id: 3,
+      name: 'حمادة بورعي',
+      total: 50,
+      required: 50,
+      received: 50,
+      price: 50,
+      showDropdown: false,
+    },
   ];
 
   toastMessage = '';
