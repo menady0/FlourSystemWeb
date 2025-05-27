@@ -1,33 +1,35 @@
 <!-- Box -->
-<div *ngFor="let record of records"
+<div *ngFor="let customer of customers"
 class="border border-gray-400 rounded-md mb-1 relative">
   <!-- DropDown -->
-  <div class="absolute top-3 left-5 bg-box flex flex-col rounded-md overflow-hidden h-auto transition-all duration-300"  [class.max-h-0]="!record.showDropdown"
-  [class.max-h-[165px]]="record.showDropdown">
-    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="resetRecord(record)">reset</button>
-    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="updateRecord(record)">update</button>
-    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="deleteRecord(record)">delete</button>
+  <div class="absolute top-3 left-5 bg-box flex flex-col rounded-md overflow-hidden h-auto transition-all duration-300"  [class.max-h-0]="!customer.showDropdown"
+  [class.max-h-[165px]]="customer.showDropdown">
+    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="resetRecord(customer)">reset</button>
+    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="updateRecord(customer)">update</button>
+    <button class="hover:bg-green-primary transition duration-300 px-3 py-2" (click)="deleteRecord(customer)">delete</button>
   </div>
   <!-- Box Header -->
   <div class="bg-[#D4D9CB] flex justify-between items-center p-3 text-sm">
     <div>
-      <p>{{ record.name }}</p>
+      <p>{{ customer.OwnerName }}</p>
     </div>
     <div>
       <p>
         الإجمالي 
         <span
-          class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.total }}</span>
+          class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ customer.NumberOfPeople * 10 }}</span>
       </p>
     </div>
-    <button (click)="toggleDropdown(record)"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+    <button (click)="toggleDropdown(customer)"><i class="fa-solid fa-ellipsis-vertical cursor-pointer"></i></button>
   </div>
   <!-- Box Body -->
   <div class="flex justify-between p-2">
     <!-- Button -->
     <div class="w-15 h-15">
       <button
-        class="bg-dark-primary rounded-full w-full h-full text-light-primary text-xs transition hover:bg-green-primary">تسجيل</button>
+        class="rounded-full w-full h-full text-light-primary text-xs transition hover:bg-green-primary cursor-pointer" [ngClass]="customer.Registration === 0 ? 'bg-dark-primary' : 'bg-green-primary'">
+      {{ customer.Registration === 0 ? "تسجيل" : customer.Registration }}
+      </button>
     </div>
     <!-- Label & Input Container -->
     <div class="flex-1 text-center px-2">
@@ -36,24 +38,24 @@ class="border border-gray-400 rounded-md mb-1 relative">
         <p>
           <span class="text-sm">المطلوب</span>
           <span
-            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.required }}</span>
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ customer.TotalQuantity }}</span>
         </p>
         <p>
           <span class="text-sm">استلم</span>
           <span
-            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.received }}</span>
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ customer.Delivered }}</span>
         </p>
         <p>
           <span class="text-sm">السعر</span>
           <span
-            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ record.price }}</span>
+            class="inline-flex items-center justify-center mx-3 border border-dark-primary rounded-full text-dark-primary w-7 h-7 font-bold">{{ customer.Price }}</span>
         </p>
       </div>
       <!-- Inputs -->
       <div class="mt-1 flex justify-center gap-4 sm:gap-20 md:gap-30">
-          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
-          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
-          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center" [value]="customer.TotalQuantity">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center" [value]="customer.Delivered">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="border border-gray-400 rounded-md py-1 w-20 text-center" [value]="customer.Price">
       </div>
     </div>
   </div>

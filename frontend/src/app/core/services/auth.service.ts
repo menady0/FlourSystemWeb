@@ -20,6 +20,7 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
+    return true; //Reminder: Remove this
     return !!token;
   }
 
